@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 .vsconfig
 /Temp
+.csproj
+.sln
