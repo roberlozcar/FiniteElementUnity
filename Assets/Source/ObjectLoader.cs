@@ -80,7 +80,7 @@ public class ObjectLoader : MonoBehaviour
         // Load object from the .obj file
 
         go = new OBJLoader().Load(pathViz);
-        go.transform.position = this.transform.position;
+        go.transform.position += this.transform.position;
         ///////////////////////////////////////////////
         // Read the simulation mesh and create lists //
         ///////////////////////////////////////////////
@@ -143,10 +143,13 @@ public class ObjectLoader : MonoBehaviour
         femSystem.Drag = Drag;
         femSystem.AlphaDamping = AlphaDamping;
         femSystem.BetaDamping = BetaDamping;
+        femSystem.BetaDamping = BetaDamping;
+        femSystem.CollStiffness = CollStiffness;
         femSystem.CollStiffness = CollStiffness;
         femSystem.Gravity = Gravity;
         femSystem.CollObstacles = CollObstacles;
         femSystem.CollType = CollType;
+
 
     // Create nodes from vSimNodes
         femSystem.Nodes = new List<Node>();
@@ -160,7 +163,7 @@ public class ObjectLoader : MonoBehaviour
             nodego.AddComponent<Node>();
             Node node = nodego.GetComponent<Node>();
             node.transform.localPosition = vSimNodes[i];
-            node.Pos = new Vector3(-vSimNodes[i].x, vSimNodes[i].y, vSimNodes[i].z);
+            node.Pos = vSimNodes[i];
             femSystem.Nodes.Add(node);
         }
 
@@ -208,7 +211,7 @@ public class ObjectLoader : MonoBehaviour
         for(int i = 1; i < nodesContentLines.Length-1; i++)
         {
             String[] split = nodesContentLines[i].Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            float x = -Single.Parse(split[1], locale);
+            float x = Single.Parse(split[1], locale);
             float y = Single.Parse(split[2], locale);
             float z = Single.Parse(split[3], locale);
             vNodes.Add(new Vector3(x,y,z));
