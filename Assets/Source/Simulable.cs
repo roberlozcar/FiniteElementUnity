@@ -40,12 +40,12 @@ public abstract class Simulable : MonoBehaviour, ISimulable
 
     public void Start()
     {
-        // Nothing to do here...
+
     }
 
     public void Update()
     {
-        // Nothing to do here...
+
     }
 
     #endregion

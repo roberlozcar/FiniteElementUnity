@@ -632,7 +632,6 @@ public class Tetrahedron : MonoBehaviour
     {
         for (int i = 0; i < this.embeddedPoints.Count; ++i)
         {
-            // COMPLETAR Parte 2
 
             VectorXD pos = new DenseVectorXD(3);
             VectorXD shape = ComputeShapeFunctionValue(embeddedPoints[i].isoParam);
@@ -704,7 +703,6 @@ public class Tetrahedron : MonoBehaviour
     {
         for (int i = 0; i < embeddedPoints.Count; ++i)
         {
-            // COMPLETAR Parte 3
             double norm = (embeddedPoints[i].position - p).L2Norm();
             if (norm < r)
             {
@@ -739,7 +737,6 @@ public class Tetrahedron : MonoBehaviour
         MatrixXD block = -k * n.OuterProduct(n);
         for (int i = 0; i < embeddedPoints.Count; ++i)
         {
-            // COMPLETAR Parte 3
             VectorXD shape = ComputeShapeFunctionValue(embeddedPoints[i].isoParam);
             if ((embeddedPoints[i].position - p) * n < 0)
             {
@@ -768,7 +765,6 @@ public class Tetrahedron : MonoBehaviour
         
         for (int i = 0; i < embeddedPoints.Count; ++i)
         {
-            // COMPLETAR Parte 3
             VectorXD shape = ComputeShapeFunctionValue(embeddedPoints[i].isoParam);
             VectorXD diff = embeddedPoints[i].position - p;
             double norm = diff.L2Norm();
@@ -815,7 +811,6 @@ public class Tetrahedron : MonoBehaviour
         MatrixXD block = -k * n.OuterProduct(n);
         for (int i = 0; i < embeddedPoints.Count; ++i)
         {
-            // OPCIONAL Parte 3
             VectorXD shape = ComputeShapeFunctionValue(embeddedPoints[i].isoParam);
             if ((embeddedPoints[i].position - p) * n < 0)
             {
@@ -843,7 +838,6 @@ public class Tetrahedron : MonoBehaviour
     {
         for (int i = 0; i < embeddedPoints.Count; ++i)
         {
-            // OPCIONAL Parte 3
             VectorXD shape = ComputeShapeFunctionValue(embeddedPoints[i].isoParam);
             double norm = (embeddedPoints[i].position - p).L2Norm();
             VectorXD diff = embeddedPoints[i].position - p;

@@ -130,8 +130,6 @@ public class ObjectLoader : MonoBehaviour
 
         // Set parameters from editor
 
-        // COMPLETAR Parte 1
-
         femSystem.Corotational = Corotational;
         femSystem.Plastic = Plastic;
         femSystem.YieldTol = YieldTol;
@@ -154,8 +152,6 @@ public class ObjectLoader : MonoBehaviour
     // Create nodes from vSimNodes
         femSystem.Nodes = new List<Node>();
 
-        // COMPLETAR Parte 1
-
         for (int i = 0; i < vSimNodes.Count; i++)
         {
             GameObject nodego = new GameObject();
@@ -169,8 +165,6 @@ public class ObjectLoader : MonoBehaviour
 
         // Create tetrahedra from vSimIndices
 		femSystem.Tetras = new List<Tetrahedron>();
-
-        // COMPLETAR Parte 1
         
         for (int i = 0; i < vSimIndices.Count; i++)
         {
@@ -228,8 +222,6 @@ public class ObjectLoader : MonoBehaviour
     bool ParseTetGenTetras(string[] tetrasContentLines, out List<int[]> vTetras)
     {
         vTetras = new List<int[]>();
-
-        // COMPLETAR Parte 1
 
         char[] separator = { ' ' };
         for (int i = 1; i<tetrasContentLines.Length - 1; i++)

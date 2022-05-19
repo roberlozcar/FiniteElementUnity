@@ -222,11 +222,6 @@ public class PhysicsManager : MonoBehaviour
         MatrixXD A = mass - TimeStep * dfdv - (TimeStep * TimeStep) * dfdx;
         VectorXD b = (mass - TimeStep * dfdv) * v + TimeStep * f;
 
-        //MatrixXD test = new DenseMatrixXD(m_numDoFs);
-        //A.CopyTo(test);
-        //Debug.Log("A: " + test.L2Norm());
-        //Debug.Log("b: " + b.L2Norm());
-
         foreach (ISimulable obj in m_simulables)
         {
             obj.FixMatrix(A);
@@ -279,11 +274,6 @@ public class PhysicsManager : MonoBehaviour
 
         SparseMatrixXD A = mass - TimeStep * TimeStep * dfdx - TimeStep * dfdv;
         VectorXD b = (mass - TimeStep * dfdv) * v + TimeStep * f;
-
-        //MatrixXD test = new DenseMatrixXD(m_numDoFs);
-        //A.CopyTo(test);
-        //Debug.Log("A: " + test.L2Norm());
-        //Debug.Log("b: " + b.L2Norm());
 
         this.SetFixedInVector(stencil, b);
         this.SetFixedInMatrix(stencil, A);
